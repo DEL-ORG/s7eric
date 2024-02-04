@@ -1,1 +1,46 @@
 
+#include <iostream>
+#include <string>
+
+class Airplane {
+private:
+    std::string make;
+    std::string model;
+    int altitude;
+
+public:
+    Airplane(std::string make, std::string model) : make(make), model(model), altitude(0) {}
+
+    void ascend(int altitudeChange) {
+        altitude += altitudeChange;
+        std::cout << make << " " << model << " is ascending to " << altitude << " feet." << std::endl;
+    }
+
+    void descend(int altitudeChange) {
+        altitude -= altitudeChange;
+        std::cout << make << " " << model << " is descending to " << altitude << " feet." << std::endl;
+    }
+
+    void displayInfo() {
+        std::cout << make << " " << model << " - Altitude: " << altitude << " feet" << std::endl;
+    }
+};
+
+int main() {
+    // Creating an instance of Airplane
+    Airplane myAirplane("Boeing", "747");
+
+    // Display initial information
+    myAirplane.displayInfo();
+
+    // Ascend to 30000 feet
+    myAirplane.ascend(30000);
+
+    // Descend to 15000 feet
+    myAirplane.descend(15000);
+
+    // Display updated information
+    myAirplane.displayInfo();
+
+    return 0;
+}
